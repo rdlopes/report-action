@@ -36,6 +36,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Test Local Action
+        id: report-action
         uses: ./
         with:
           title: Custom Report
