@@ -14,8 +14,9 @@ describe("Create Summary", () => {
     const summaryPath = path.join(__dirname, "__output__", "summary.html");
     fs.writeFileSync(summaryPath, "");
     process.env[SUMMARY_ENV_VAR] = summaryPath;
-    await createSummary("Test Summary");
-    const summaryContents = fs.readFileSync(summaryPath).toString();
+    const summaryContents = await createSummary("Test Summary");
+    const summaryFileContents = fs.readFileSync(summaryPath).toString();
     expect(summaryContents).toMatch('<h1>Test Summary</h1>');
+    expect(summaryFileContents).toMatch("<h1>Test Summary</h1>");
   });
 });

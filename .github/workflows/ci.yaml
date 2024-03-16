@@ -38,6 +38,6 @@ jobs:
       - name: Test Local Action
         uses: ./
         with:
-          milliseconds: 2000
+          title: Custom Report
       - name: Print Output
         run: echo "${{ steps.report-action.outputs.report }}"

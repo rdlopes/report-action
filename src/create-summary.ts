@@ -1,7 +1,10 @@
 import * as core from "@actions/core";
 
 export async function createSummary(title: string) {
-  await core.summary
-    .addHeading(title)
-    .write({ overwrite: true });
+  const summary = core.summary
+    .addHeading(title);
+
+  const contents = summary.stringify();
+  await summary.write({ overwrite: true });
+  return contents;
 }
