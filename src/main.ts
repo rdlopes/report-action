@@ -4,8 +4,8 @@ import { createSummary } from "./create-summary";
 try {
   const title = core.getInput("title");
   core.debug(`title: ${title}`);
-  createSummary(title)
-    .then(report => core.setOutput("report", report));
+  const report = createSummary(title);
+  core.setOutput("report", report);
 } catch (error) {
   if (error instanceof Error) {
     core.setFailed(error.message);

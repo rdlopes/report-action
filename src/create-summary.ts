@@ -5,6 +5,6 @@ export async function createSummary(title: string) {
     .addHeading(title);
 
   const contents = summary.stringify();
-  await summary.write({ overwrite: true });
+  await summary.write();
   return contents;
 }
