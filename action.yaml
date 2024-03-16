@@ -1,0 +1,13 @@
+name: "Report Action"
+description: "Create custom reports"
+inputs:
+  title:
+    description: "Report title."
+    required: true
+    default: "Custom Report"
+outputs:
+  contents:
+    description: "Contents of the report in HTML format."
+runs:
+  using: "node20"
+  main: "main/index.js"
