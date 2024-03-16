@@ -9,4 +9,4 @@ node_modules/
 .DS_Store
 
 ### Jest
-src/__output__
+src/__output__/summary.html
