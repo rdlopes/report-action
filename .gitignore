@@ -3,6 +3,10 @@ node_modules/
 
 ### IntelliJ
 .idea
+*.iml
 
 ### OS caches
 .DS_Store
+
+### Jest
+src/__output__

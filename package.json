@@ -33,7 +33,7 @@
       "ts"
     ],
     "testMatch": [
-      "src/*.test.ts"
+      "**/*.test.ts"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
