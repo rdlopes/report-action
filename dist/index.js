@@ -1205,7 +1205,7 @@
           this.payload = {};
           if (process.env.GITHUB_EVENT_PATH) {
             if ((0, fs_1.existsSync)(process.env.GITHUB_EVENT_PATH)) {
-              this.payload = JSON.parse((0, fs_1.readFileSync)(process.env.GITHUB_EVENT_PATH, { encoding: "utf8" }));
+              this.payload = JSON.parse((0, fs_1.readFileSync)(process.env.GITHUB_EVENT_PATH, { encoding: 'utf8' }));
             } else {
               const path = process.env.GITHUB_EVENT_PATH;
               process.stdout.write(`GITHUB_EVENT_PATH ${path} does not exist${os_1.EOL}`);
@@ -1233,7 +1233,7 @@
 
         get repo() {
           if (process.env.GITHUB_REPOSITORY) {
-            const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+            const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
             return { owner, repo };
           }
           if (this.payload.repository) {
@@ -1377,11 +1377,11 @@
 
       function getAuthString(token, options) {
         if (!token && !options.auth) {
-          throw new Error("Parameter token or opts.auth is required");
+          throw new Error('Parameter token or opts.auth is required');
         } else if (token && options.auth) {
-          throw new Error("Parameters token and opts.auth may not both be specified");
+          throw new Error('Parameters token and opts.auth may not both be specified');
         }
-        return typeof options.auth === "string" ? options.auth : `token ${token}`;
+        return typeof options.auth === 'string' ? options.auth : `token ${token}`;
       }
 
       exports.getAuthString = getAuthString;
@@ -1411,7 +1411,7 @@
       exports.getProxyFetch = getProxyFetch;
 
       function getApiBaseUrl() {
-        return process.env["GITHUB_API_URL"] || "https://api.github.com";
+        return process.env['GITHUB_API_URL'] || 'https://api.github.com';
       }
 
       exports.getApiBaseUrl = getApiBaseUrl;
@@ -3250,7 +3250,6 @@
           url: "/graphql"
         });
       }
-
 // Annotate the CommonJS export names for ESM import in node:
       0 && (0);
 
@@ -6212,7 +6211,7 @@
       function HookSingular() {
         var singularHookName = "h";
         var singularHookState = {
-          registry: {}
+          registry: {},
         };
         var singularHook = register.bind(null, singularHookState, singularHookName);
         bindApi(singularHook, singularHookState, singularHookName);
@@ -6221,7 +6220,7 @@
 
       function HookCollection() {
         var state = {
-          registry: {}
+          registry: {},
         };
 
         var hook = register.bind(null, state);
@@ -6235,7 +6234,7 @@
       function Hook() {
         if (!collectionHookDeprecationMessageDisplayed) {
           console.warn(
-            "[before-after-hook]: \"Hook()\" repurposing warning, use \"Hook.Collection()\". Read more: https://git.io/upgrade-before-after-hook-to-1.4"
+            '[before-after-hook]: "Hook()" repurposing warning, use "Hook.Collection()". Read more: https://git.io/upgrade-before-after-hook-to-1.4'
           );
           collectionHookDeprecationMessageDisplayed = true;
         }
@@ -6301,7 +6300,7 @@
 
         state.registry[name].push({
           hook: hook,
-          orig: orig
+          orig: orig,
         });
       }
 
@@ -6389,7 +6388,7 @@
             Error.captureStackTrace(this, this.constructor);
           }
 
-          this.name = "Deprecation";
+          this.name = 'Deprecation';
         }
 
       }
@@ -6403,47 +6402,47 @@
     /***/ 1223:
     /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-      var wrappy = __nccwpck_require__(2940);
-      module.exports = wrappy(once);
-      module.exports.strict = wrappy(onceStrict);
+      var wrappy = __nccwpck_require__(2940)
+      module.exports = wrappy(once)
+      module.exports.strict = wrappy(onceStrict)
 
       once.proto = once(function() {
-        Object.defineProperty(Function.prototype, "once", {
+        Object.defineProperty(Function.prototype, 'once', {
           value: function() {
-            return once(this);
+            return once(this)
           },
           configurable: true
-        });
+        })
 
-        Object.defineProperty(Function.prototype, "onceStrict", {
+        Object.defineProperty(Function.prototype, 'onceStrict', {
           value: function() {
-            return onceStrict(this);
+            return onceStrict(this)
           },
           configurable: true
-        });
-      });
+        })
+      })
 
       function once(fn) {
         var f = function() {
-          if (f.called) return f.value;
-          f.called = true;
-          return f.value = fn.apply(this, arguments);
-        };
-        f.called = false;
-        return f;
+          if (f.called) return f.value
+          f.called = true
+          return f.value = fn.apply(this, arguments)
+        }
+        f.called = false
+        return f
       }
 
       function onceStrict(fn) {
         var f = function() {
           if (f.called)
-            throw new Error(f.onceError);
-          f.called = true;
-          return f.value = fn.apply(this, arguments);
-        };
-        var name = fn.name || "Function wrapped with `once`";
-        f.onceError = name + " shouldn't be called more than once";
-        f.called = false;
-        return f;
+            throw new Error(f.onceError)
+          f.called = true
+          return f.value = fn.apply(this, arguments)
+        }
+        var name = fn.name || 'Function wrapped with `once`'
+        f.onceError = name + " shouldn't be called more than once"
+        f.called = false
+        return f
       }
 
 
@@ -29535,33 +29534,33 @@ ${pendingInterceptorsFormatter.format(pending)}
 // presumably different callback function.
 // This makes sure that own properties are retained, so that
 // decorations and such are not lost along the way.
-      module.exports = wrappy;
+      module.exports = wrappy
 
       function wrappy(fn, cb) {
-        if (fn && cb) return wrappy(fn)(cb);
+        if (fn && cb) return wrappy(fn)(cb)
 
-        if (typeof fn !== "function")
-          throw new TypeError("need wrapper function");
+        if (typeof fn !== 'function')
+          throw new TypeError('need wrapper function')
 
         Object.keys(fn).forEach(function(k) {
-          wrapper[k] = fn[k];
-        });
+          wrapper[k] = fn[k]
+        })
 
-        return wrapper;
+        return wrapper
 
         function wrapper() {
-          var args = new Array(arguments.length);
+          var args = new Array(arguments.length)
           for (var i = 0; i < args.length; i++) {
-            args[i] = arguments[i];
+            args[i] = arguments[i]
           }
-          var ret = fn.apply(this, args);
-          var cb = args[args.length - 1];
-          if (typeof ret === "function" && ret !== cb) {
+          var ret = fn.apply(this, args)
+          var cb = args[args.length - 1]
+          if (typeof ret === 'function' && ret !== cb) {
             Object.keys(cb).forEach(function(k) {
-              ret[k] = cb[k];
-            });
+              ret[k] = cb[k]
+            })
           }
-          return ret;
+          return ret
         }
       }
 
