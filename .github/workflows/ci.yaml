@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   test-typescript:
@@ -40,5 +41,6 @@ jobs:
         uses: ./
         with:
           title: Custom Report
+          GITHUB_TOKEN: ${{ github.token }}
       - name: Print Output
         run: echo "${{ steps.report-action.outputs.report }}"

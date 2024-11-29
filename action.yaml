@@ -1,6 +1,9 @@
 name: "Report Action"
 description: "Create custom reports"
 inputs:
+  GITHUB_TOKEN:
+    description: "GitHub token."
+    required: true
   title:
     description: "Report title."
     required: true
